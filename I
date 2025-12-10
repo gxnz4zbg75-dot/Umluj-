@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>السعودية بعيون تقنية: مدينة أملج</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Tahoma", Arial, sans-serif; background-color: #020617; color: #f9fafb; line-height: 1.8; }
+        a { color: inherit; text-decoration: none; }
+        header { background-color: #020617; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2937; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: bold; font-size: 1.1rem; }
+        nav a { margin-left: 16px; font-size: 0.9rem; opacity: 0.8; }
+        nav a:hover { opacity: 1; }
+        main { max-width: 1100px; margin: 0 auto; padding: 30px 16px 60px; }
+        section { margin-bottom: 70px; }
+        h1,h2 { margin: 0 0 16px; }
+        h2 { font-size: 1.8rem; text-align: center; }
+        .btn-primary, .btn-ghost { display: inline-block; padding: 10px 24px; border-radius: 999px; border: 1px solid #0ea5e9; background: #0ea5e9; color: #020617; font-size: 0.95rem; cursor: pointer; }
+        .btn-primary:hover { background: #38bdf8; border-color: #38bdf8; }
+        .btn-ghost { background: transparent; color: #e5e7eb; }
+        .muted { color: #d1d5db; }
+
+        .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }
+        .hero-image-wrapper { flex: 1 1 260px; display: flex; justify-content: center; }
+        .hero-circle { width: 320px; height: 320px; border-radius: 50%; overflow: hidden; position: relative; }
+        .hero-circle img { width: 100%; height: 100%; object-fit: cover; display:block; }
+        .hero-text { flex: 1 1 280px; }
+        .hero-text h2 { font-size: 2.2rem; margin-bottom: 10px; text-align: right; }
+        .hero-text p { max-width: 420px; color: #d1d5db; text-align: right; }
+
+        .card-overlay { position: relative; border-radius: 18px; overflow: hidden; min-height: 260px; background-color: #0b1120; }
+        .card-overlay img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+        .card-overlay .inner { position: relative; padding: 30px 26px; }
+
+        .features { display: flex; flex-wrap: wrap; gap: 28px; }
+        .features-images { flex: 1 1 260px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .features-images .circle-large { width: 260px; height: 260px; border-radius: 50%; overflow: hidden; }
+        .features-images .circle-small { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; }
+        .features-images img { width: 100%; height: 100%; object-fit: cover; display:block; }
+        .features-list { flex: 1 1 260px; }
+        .features-list h2 { text-align: right; }
+        .pill { display: block; padding: 10px 16px; margin-bottom: 10px; border-radius: 999px; border: 1px solid #1f2937; background-color: #020617; text-align: right; font-size: 0.95rem; }
+
+        .nature-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 18px; }
+        .circle-large { width: 260px; height: 260px; border-radius: 50%; overflow: hidden; }
+        .circle-large img { width: 100%; height: 100%; object-fit: cover; display:block; }
+
+        .text-center { text-align: center; max-width: 900px; margin: 0 auto; }
+        .climate-image, .reserve-image { max-width: 700px; margin: 18px auto 0; overflow: hidden; }
+        .climate-image { border-radius: 18px; }
+        .reserve-image { border-radius: 40px; max-width: 420px; }
+        .climate-image img, .reserve-image img { width: 100%; height: 100%; object-fit: cover; display:block; }
+
+        .activities { display: flex; flex-wrap: wrap; gap: 26px; }
+        .activities-images { flex: 1 1 280px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .activities-images img { width: 100%; height: 150px; border-radius: 12px; object-fit: cover; display:block; }
+        .activities-list { flex: 1 1 260px; }
+
+        .marine-list { display: grid; gap: 12px; }
+        .marine-item { display: flex; align-items: center; gap: 12px; background-color: rgba(15,23,42,0.9); padding: 10px 12px; border-radius: 10px; }
+        .marine-item img { width: 64px; height: 42px; border-radius: 6px; object-fit: cover; display:block; }
+        .marine-item h3 { margin: 0 0 2px; font-size: 0.95rem; }
+        .marine-item p { margin: 0; font-size: 0.8rem; color: #e5e7eb; }
+
+        .arrival { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+        .arrival-text { flex: 1 1 260px; }
+        .arrival-image { flex: 1 1 260px; }
+        .arrival-image img { width: 100%; border-radius: 18px; object-fit: cover; max-height: 260px; display:block; }
+
+        .contact-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 260px; }
+        .contact-card img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+        .contact-card .inner { position: relative; padding: 30px 26px 22px; text-align: center; }
+        .contact-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.9rem; justify-content: center; }
+        .contact-actions div { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background-color: rgba(15,23,42,0.92); }
+        .contact-actions span.icon { font-size: 1rem; }
+        .copyright { text-align: center; padding: 14px; color: #9ca3af; font-size: 0.8rem; border-top: 1px solid #1f2937; margin-top: 30px; }
+
+        @media (max-width: 720px) {
+            header { padding: 14px 16px; }
+            header nav { display: none; }
+            .hero-circle { width: 260px; height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">السعودية بعيون تقنية: أملج</div>
+    <nav>
+        <a href="#hero">الرئيسية</a>
+        <a href="#history">تاريخ</a>
+        <a href="#features">ماذا يميزها؟</a>
+        <a href="#climate">مناخ</a>
+        <a href="#reserves">محميات</a>
+        <a href="#nature">طبيعة</a>
+        <a href="#activities-section">الأنشطة</a>
+        <a href="#marine">بحر</a>
+        <a href="#arrival">الوصول</a>
+        <a href="#contact">تواصل</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <div class="hero-image-wrapper">
+            <div class="hero-circle">
+                <!-- صورة بديلة إذا القطع الأصلي -->
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="منظر بحري لأملج">
+            </div>
+        </div>
+        <div class="hero-text">
+            <h2>أملج — لؤلؤة البحر الأحمر</h2>
+            <p class="muted">مدينة ساحلية في المملكة العربية السعودية تشتهر بشواطئها النقية، الشعاب المرجانية، والمحميات الساحرة. صفحة تعريفية قصيرة تُظهر جمال أملج وترشد الزائرين إلى الأنشطة والأماكن المفضلة.</p>
+            <div style="margin-top:14px; text-align:right;">
+                <a class="btn-primary" href="#features">استكشف الآن</a>
+                <a class="btn-ghost" href="#contact" style="margin-right:8px;">تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="card-overlay">
+        <img class="bg" src="https://images.unsplash.com/photo-1526481280698-37bde4b1b1f8?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="خلفية تاريخية">
+        <div class="inner">
+            <h2>تاريخ أملج</h2>
+            <p class="muted" style="text-align:right;">أملج لها تاريخ طويل كمدينة ساحلية تداولها البحارة والتجار عبر البحر الأحمر. تشتهر بموانئها القديمة وارتباطها بالنشاط البحري والصيد والمرجان.</p>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <h2>ماذا يميز أملج؟</h2>
+        <div class="features card-overlay" style="padding:22px;">
+            <div class="features-images">
+                <div class="circle-large"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="شاطئ"></div>
+                <div class="circle-small"><img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="شعاب"></div>
+            </div>
+            <div class="features-list">
+                <h2 style="text-align:right;">لمحات سريعة</h2>
+                <span class="pill">شواطئ رملية وصخور مرجانية</span>
+                <span class="pill">غوص واستكشاف الشعاب المرجانية</span>
+                <span class="pill">محميات طبيعية وتنوع بيولوجي</span>
+                <span class="pill">ثقافة محلية بحرية عريقة</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- NATURE -->
+    <section id="nature">
+        <h2>طبيعة أملج</h2>
+        <div class="nature-images">
+            <div class="circle-large"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="طبيعة"></div>
+            <div class="circle-large"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="ساحل"></div>
+            <div class="circle-large"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="مرجان"></div>
+        </div>
+        <p class="muted" style="text-align:center; max-width:900px; margin: 12px auto 0;">تجمع أملج بين الساحل الصخري والشواطئ الرملية ومواقع الغوص المتميزة، ما يجعلها وجهة محببة لمحبي الطبيعة البحرية.</p>
+    </section>
+
+    <!-- CLIMATE & RESERVES -->
+    <section id="climate" class="card-overlay">
+        <img class="bg" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="مناخ">
+        <div class="inner text-center">
+            <h2>المناخ والمحميات</h2>
+            <p class="muted" style="text-align:center;">مناخ صحراوي معتدل على الساحل مع شتاء لطيف. توجد محميات بحرية تساهم في حماية الشعاب المرجانية والحياة البحرية.</p>
+            <div class="reserve-image"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="محميات بحرية"></div>
+        </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="activities-section">
+        <h2>الأنشطة السياحية</h2>
+        <div class="activities">
+            <div class="activities-images card-overlay" style="padding:12px;">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="غوص">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="قوارب">
+                <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="رحلات بحرية">
+            </div>
+            <div class="activities-list">
+                <ul style="text-align:right; padding-left:16px;">
+                    <li>غوص حر واستكشاف الشعاب المرجانية.</li>
+                    <li>جولات بالقوارب لمشاهدة السواحل والجزر القريبة.</li>
+                    <li>صيد تقليدي وتجارب الطهي البحري المحلي.</li>
+                    <li>رحلات تصوير للطبيعة ومراقبة الطيور.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARINE LIFE -->
+    <section id="marine">
+        <h2>الحياة البحرية</h2>
+        <div class="marine-list">
+            <div class="marine-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="دلافين"><div><h3>الدلافين</h3><p class="muted">شائعة في مياه البحر الأحمر حول أملج.</p></div></div>
+            <div class="marine-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="سلاحف"><div><h3>السلحفاة</h3><p class="muted">مواقع تعشيش للسلاحف البحرية في بعض الشواطئ.</p></div></div>
+            <div class="marine-item"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="شعاب"><div><h3>الشعاب المرجانية</h3><p class="muted">موطن لمئات الأنواع وتستحق الحماية.</p></div></div>
+        </div>
+    </section>
+
+    <!-- ARRIVAL -->
+    <section id="arrival" class="card-overlay">
+        <div class="inner arrival">
+            <div class="arrival-text">
+                <h2>كيفية الوصول إلى أملج</h2>
+                <p class="muted" style="text-align:right;">أقرب مطار إقليمي إلى أملج هو مطار تبوك/الأقرب قد تختلف حسب تحديثات الرحلات. من المدن الكبيرة مثل الرياض وجدة يمكن الوصول عبر رحلات داخلية ثم مواصلات برية. تأكد من جداول الطيران عند التخطيط.</p>
+                <p style="text-align:right;"><strong>نصيحة:</strong> استخدمي خدمة الخرائط للتوجيه وأوقات الرحلات الحديثة.</p>
+            </div>
+            <div class="arrival-image"><img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="وصول"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>تواصل معنا</h2>
+        <div class="contact-card card-overlay">
+            <img class="bg" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="خلفية تواصل">
+            <div class="inner">
+                <p class="muted">إذا عندك أسئلة أو تبين تعاون أو جولات سياحية، تواصل معنا:</p>
+                <div class="contact-actions" role="group" aria-label="طرق التواصل">
+                    <div><span class="icon">📧</span><span>info@example.com</span></div>
+                    <div><span class="icon">📞</span><span>+966 5X XXX XXXX</span></div>
+                    <div><span class="icon">📍</span><span>أملج، السعودية</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">© 2025 السعودية بعيون تقنية — أملج. جميع الحقوق محفوظة.</div>
+
+</main>
+
+</body>
+</html>
